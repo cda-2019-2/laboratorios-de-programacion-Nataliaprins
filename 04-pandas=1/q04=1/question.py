@@ -11,3 +11,8 @@
 ##  >>> Escriba su codigo a partir de este punto <<<
 ##
 
+import pandas as pd
+df=pd.read_csv('tbl1.tsv', sep='\t')
+r=df['_c4'].str.upper()
+r=sorted(r.unique())
+print(r)

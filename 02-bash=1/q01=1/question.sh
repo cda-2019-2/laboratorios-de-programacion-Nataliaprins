@@ -23,3 +23,15 @@
 ##
 ##  >>> Escriba su codigo a partir de este punto <<<
 ##
+#! /usr/bin/env bash
+datas=$(ls *.csv)
+for datos in $datas
+do 
+ if [ -f data.csv ]
+ then 
+    cat $datos | sed '/^[[:space:]]*$/d' | nl | sed 's/[[:space:]]//g' | sed 's/\([0-9]\)\([A-Z]\)/'${datos[*]}'\,\1,\2,/g' >> data.csv
+ else
+    cat $datos | sed '/^[[:space:]]*$/d' | nl | sed 's/[[:space:]]//g' | sed 's/\([0-9]\)\([A-Z]\)/'${datos[*]}'\,\1,\2,/g' > data.csv
+ fi
+
+done

@@ -16,3 +16,8 @@
 ##
 ##  >>> Escriba su codigo a partir de este punto <<<
 ##
+import pandas as pd
+df=pd.read_csv('tbl0.tsv', sep='\t')
+df
+r= df.groupby('_c1')['_c2'].sum()
+print(r)
